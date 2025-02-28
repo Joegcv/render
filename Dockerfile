@@ -1,14 +1,11 @@
-# Utiliser l'image officielle de n8n comme base
 FROM n8nio/n8n:latest
 
 # Copier le script de démarrage
 COPY start.sh /start.sh
 
-# Rendre le script exécutable
-#RUN chmod +x /start.sh
-
-# Définir la variable d'environnement pour la base de données
+# Définir les variables d'environnement
 ENV DB_PATH=/opt/render/project/.n8n/n8n.sqlite
+ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
 
 # Exposer le port 5678
 EXPOSE 5678
