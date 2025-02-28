@@ -5,7 +5,7 @@ FROM n8nio/n8n:latest
 COPY start.sh /start.sh
 
 # Rendre le script exécutable
-RUN chmod +x /start.sh
+#RUN chmod +x /start.sh
 
 # Définir la variable d'environnement pour la base de données
 ENV DB_PATH=/opt/render/project/.n8n/n8n.sqlite
