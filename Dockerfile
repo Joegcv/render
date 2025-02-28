@@ -1,12 +1,14 @@
 # Utiliser l'image officielle de n8n comme base
 FROM n8nio/n8n:latest
 
-# Créer le répertoire .n8n s'il n'existe pas : pendant RUN le chemin n'est pas volume n'est pas disponible
-#RUN mkdir -p /opt/render/project/.n8n/data
+# Rendre le script exécutable
+RUN chmod +x /start.sh
 
-# Exposer le port par défaut de n8n
+# Définir la variable d'environnement pour la base de données
+ENV DB_PATH=/opt/render/project/.n8n/n8n.sqlite
+
+# Exposer le port 5678
 EXPOSE 5678
 
-# Démarrer n8n
-CMD ["n8n"]
-
+# Utiliser le script de démarrage
+CMD ["/start.sh"]
