@@ -1,6 +1,9 @@
 # Utiliser l'image officielle de n8n comme base
 FROM n8nio/n8n:latest
 
+# Copier le script de démarrage
+COPY start.sh /start.sh
+
 # Rendre le script exécutable
 RUN chmod +x /start.sh
 
